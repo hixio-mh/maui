@@ -317,6 +317,8 @@ stages:
               msbuild
           steps:
             - template: build/steps/build-sign.yml
+              parameters:
+                sourceRepo: 'dotnet/maui'
           condition: and(succeeded(), ne(variables['signVmImage'], ''), or(eq(variables['Sign'], 'true'), or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'],'refs/tags/'))))
 
 
